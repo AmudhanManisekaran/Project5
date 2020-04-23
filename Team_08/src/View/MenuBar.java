@@ -21,26 +21,28 @@ public class MenuBar extends JMenuBar {
 	private static final long serialVersionUID = 1L;
 
 	MenuBar() {
-		String MENU = "| MENU |";
-		JMenu menu = new JMenu(MENU);
+		String FILE = "File";
+		JMenu file = new JMenu(FILE);
+		JMenu project = new JMenu("Project");
 		JMenuBar menuBar = new JMenuBar();
 
-		String SAVE = "Save Document";
+		String SAVE = "Save";
 		SaveDocument saveDocument = new SaveDocument(SAVE);
 		saveDocument.addActionListener(saveDocument);
 
-		String LOAD = "Load Document";
+		String LOAD = "Open";
 		LoadDocument loadDocument = new LoadDocument(LOAD);
 		loadDocument.addActionListener(loadDocument);
 
-		String COMPILE = "Compile Document";
+		String COMPILE = "Compile";
 		CompileFile compileFile = new CompileFile(COMPILE);
 		compileFile.addActionListener(compileFile);
-		
-		menu.add(saveDocument);
-		menu.add(loadDocument);
-		menu.add(compileFile);
-		menuBar.add(menu);
+
+		file.add(saveDocument);
+		file.add(loadDocument);
+		project.add(compileFile);
+		menuBar.add(file);
+		menuBar.add(project);
 
 		JButton NewTab = new JButton("  New Tab  ");
 		Border border = new LineBorder(Color.BLACK, 1);
